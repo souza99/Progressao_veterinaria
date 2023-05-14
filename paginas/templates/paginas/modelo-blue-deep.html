@@ -65,17 +65,17 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-                                <a class="dropdown-item" href="{% url 'listar-cidade' %}">Cidades</a>
-                                <a class="dropdown-item" href="{% url 'listar-estado' %}">Estados</a>
+                                {% comment %} <a class="dropdown-item" href="{% url 'listar-cidade' %}">Cidades</a> {% endcomment %}
+                                {% comment %} <a class="dropdown-item" href="{% url 'listar-estado' %}">Estados</a> {% endcomment %}
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'listar-campus' %}">Campus</a>
+                                {% comment %} <a class="dropdown-item" href="{% url 'listar-campus' %}">Campus</a>
                                 <a class="dropdown-item" href="{% url 'listar-status' %}">Status</a>
                                 <a class="dropdown-item" href="{% url 'listar-situacao' %}">Situações</a>
                                 <a class="dropdown-item" href="{% url 'listar-classe' %}">Classes</a>
                                 <a class="dropdown-item" href="{% url 'listar-progressao' %}">Progressões</a>
                                 <a class="dropdown-item" href="{% url 'listar-campo' %}">Campos</a>
                                 <a class="dropdown-item" href="{% url 'listar-atividade' %}">Atividades</a>
-                                <a class="dropdown-item" href="{% url 'listar-comprovante' %}">Comprovantes</a>
+                                <a class="dropdown-item" href="{% url 'listar-comprovante' %}">Comprovantes</a> {% endcomment %}
 
                             </div>
                         </li>
@@ -105,16 +105,16 @@
                                 <span id="username">{{ request.user }}</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{% url 'atualizar-dados' %}">
+                                {% comment %} <a class="dropdown-item" href="{% url 'atualizar-dados' %}">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    Meus dados</a>
+                                    Meus dados</a> {% endcomment %}
                                 <a class="dropdown-item" href="#">
                                     <i class="fa fa-lock" aria-hidden="true"></i>
                                     Alterar senha</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                {% comment %} <a class="dropdown-item" href="{% url 'logout' %}">
                                     <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                    Sair</a>
+                                    Sair</a> {% endcomment %}
                             </div>
                         </li>
                         {% else %}
