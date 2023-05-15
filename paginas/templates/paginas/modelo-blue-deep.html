@@ -105,16 +105,16 @@
                         </li>
                         {% else %}
                         <li class="nav-item ">
-                            <a class="nav-link" href="{% url 'registrar' %}">
+                            {% comment %} <a class="nav-link" href="{% url 'registrar' %}">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
                                 Registrar
-                            </a>
+                            </a> {% endcomment %}
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="{% url 'login' %}">
+                            {% comment %} <a class="nav-link" href="{% url 'login' %}">
                                 <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 Login
-                            </a>
+                            </a> {% endcomment %}
                         </li>
                         {% endif %}
 

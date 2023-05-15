@@ -45,3 +45,11 @@ class QualidadeLeite(models.Model):
 
     def __str__(self):
         return f"Qualidade do leite de {self.animal.nome}"
+    
+class HistoricoAnimal(models.Model):
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    observacoes = models.TextField()
+    medicamento = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"Histórico do Animal: {self.animal.nome}"
