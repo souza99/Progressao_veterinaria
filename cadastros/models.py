@@ -53,3 +53,11 @@ class HistoricoAnimal(models.Model):
 
     def __str__(self):
         return f"Histórico do Animal: {self.animal.nome}"
+    
+class Cio(models.Model):
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    diasServ = models.IntegerField()
+    ultimaServ = models.DateField()
+
+    def __str__(self):
+        return f"Cio do Animal: {self.animal.nome}"
