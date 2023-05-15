@@ -1,28 +1,24 @@
-
-/* 
-Cores do IFPR 
-*/
-.bg-ifpr {
-    background-color: #007834;
+.bg-gerevete {
+    background-color: #48aa73;
 }
 
-.text-ifpr {
-    color: #007834;
+.text-gerevete {
+    color: #55aa7a;
 }
 
-.border-ifpr {
-    border-color: #007834;
+.border-gerevete {
+    border-color: #abdfc1;
 }
-.bg-ifpr-escuro {
-    background-color: #315C23;
-}
-
-.text-ifpr-escuro {
-    color: #315C23;
+.bg-gerevete-escuro {
+    background-color: #6bc24e;
 }
 
-.border-ifpr-escuro {
-    border-color: #315C23;
+.text-gerevete-escuro {
+    color: #6bd348;
+}
+
+.border-gerevete-escuro {
+    border-color: #5ace33;
 }
 
 
@@ -79,7 +75,7 @@ Personalização da Barra de menu pra ficar igual do site
 }
 
 .navbar .nav-item:hover{
-    background-color: #315C23;
+    background-color: #5add2e;
 }
 
 
