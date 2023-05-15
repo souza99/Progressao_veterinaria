@@ -3,7 +3,7 @@ from django.urls import path
 from .views import FazendaCreate, AnimalCreate, QualidadeLeiteCreate, HistoricoAnimalCreate
 from .views import FazendaUpdate, AnimalUpdate, QualidadeLeiteUpdate, HistoricoAnimalUpdate
 from .views import FazendaDelete, AnimalDelete, QualidadeLeiteDelete, HistoricoAnimalDelete
-from .views import FazendaList
+from .views import FazendaList, AnimalList, HistoricoanimalList, QualidadeLeiteList
 
 urlpatterns = [
     path('cadastrar/fazenda/', FazendaCreate.as_view(), name='fazenda-create'),
@@ -22,5 +22,8 @@ urlpatterns = [
     path('deletar/historicoanimal/<int:pk>/', HistoricoAnimalDelete.as_view(), name='historicoanimal-delete'),
     
     path('listar/fazendas/', FazendaList.as_view(), name='fazenda-list'),
+    path('listar/animais/', AnimalList.as_view(), name='animal-list'),
+    path('listar/historicos/', HistoricoanimalList.as_view(), name='historicoanimal-list'),
+    path('listar/qualidadeleites/', QualidadeLeiteList.as_view(), name='qualidadeleite-list'),
     
 ]

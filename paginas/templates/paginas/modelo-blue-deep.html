@@ -13,10 +13,6 @@
     <title>:: SisProg ::</title>
     {% endblock %}
 
-    <!-- Ícone do favicon -->
-    <link href="{% static 'img/favicon.gif' %}" rel="shortcut icon" type="image/x-icon" />
-
-
     <!-- Importação do Bootstrap 4 e do Font awesome -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
@@ -73,6 +69,10 @@
                                 Cadastros
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{% url 'fazenda-list' %}">Fazendas</a>
+                                <a class="dropdown-item" href="{% url 'animal-list' %}">Animais</a>
+                                <a class="dropdown-item" href="{% url 'historicoanimal-list' %}">Históricos</a>
+                                <a class="dropdown-item" href="{% url 'qualidadeleite-list' %}">Qualidade do leite</a>
                             </div>
                         </li>
                         {% endif %}
@@ -81,12 +81,6 @@
                             <a class="nav-link" href="{% url 'sobre' %}">
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                 Sobre
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-question-circle" aria-hidden="true"></i>
-                                Ajuda
                             </a>
                         </li>
                     </ul>
@@ -154,9 +148,6 @@
                         <span>Desenvolvido por João Pedro F. Souza</span>
                     </p>
                 </div>
-                <!-- <div class="col-md text-left">
-                    <img src="{% static 'img/ifpr.png' %}" height="100" alt="">
-                </div> -->
 
                 </p>
             </div>
