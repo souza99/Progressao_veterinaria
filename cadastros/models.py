@@ -61,3 +61,12 @@ class Cio(models.Model):
 
     def __str__(self):
         return f"Cio do Animal: {self.animal.nome}"
+    
+class GanhoPeso(models.Model):
+    dia = models.DateField()
+    pesoDia = models.FloatField(verbose_name='Peso por dia')
+    quantidadeRacao = models.FloatField(verbose_name='Quantidade de ração')
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Ganho de Peso do Animal: {self.animal.nome}"
