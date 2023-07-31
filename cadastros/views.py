@@ -4,39 +4,47 @@ from django.views.generic.list import ListView
 
 from .models import Fazenda, Animal, QualidadeLeite, HistoricoAnimal, Cio, GanhoPeso
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.urls import reverse_lazy
 # Create your views here.
-class FazendaCreate(CreateView):
+class FazendaCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Fazenda
     fields = ['nome', 'localizacao', 'cpfcnpj', 'numero']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('fazenda-list')
     
-class AnimalCreate(CreateView):
+class AnimalCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Animal
     fields = ['nome', 'lote', 'nomePai', 'numeroPai', 'nomeMae', 'numeroMae', 'motivoBaixa', 'partosNaoLancados', 'dataNascimento', 'dataBaixa', 'fazenda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('animal-list')
     
-class QualidadeLeiteCreate(CreateView):
+class QualidadeLeiteCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = QualidadeLeite
     fields = ['nt', 'dias', 'estado', 'kgLeite', 'porcentagemGordura', 'porcentagemProteinas', 'lactose', 'gp', 'ccs', 'ureia', 'cetose', 'pps', 'animal', 'diaRetirado']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('qualidadeleite-list')
     
-class HistoricoAnimalCreate(CreateView):
+class HistoricoAnimalCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = HistoricoAnimal
     fields = ['animal' ,'observacoes' ,'medicamento']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('historicoanimal-list')
     
-class CioCreate(CreateView):
+class CioCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Cio
     fields = ['animal', 'diasServ', 'ultimaServ']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('cio-list')
     
-class GanhoPesoCreate(CreateView):
+class GanhoPesoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = GanhoPeso
     fields = ['animal','dia', 'pesoDia', 'quantidadeRacao']
     template_name = 'cadastros/form.html'
@@ -44,37 +52,43 @@ class GanhoPesoCreate(CreateView):
     
 ################### UPDATE ####################
 
-class FazendaUpdate(UpdateView):
+class FazendaUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Fazenda
     fields = ['nome', 'localizacao', 'cpfcnpj', 'numero']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('fazenda-list')
     
-class AnimalUpdate(UpdateView):
+class AnimalUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Animal
     fields = ['nome', 'lote', 'nomePai', 'numeroPai', 'nomeMae', 'numeroMae', 'motivoBaixa', 'partosNaoLancados', 'dataNascimento', 'dataBaixa', 'fazenda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('animal-list')
     
-class QualidadeLeiteUpdate(UpdateView):
+class QualidadeLeiteUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = QualidadeLeite
     fields = ['nt', 'dias', 'estado', 'kgLeite', 'porcentagemGordura', 'porcentagemProteinas', 'lactose', 'gp', 'ccs', 'ureia', 'cetose', 'pps', 'animal', 'diaRetirado']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('qualidadeleite-list')
     
-class HistoricoAnimalUpdate(UpdateView):
+class HistoricoAnimalUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = HistoricoAnimal
     fields = ['animal' ,'observacoes' ,'medicamento']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('historicoanimal-list')
 
-class CioUpdate(UpdateView):
+class CioUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Cio
     fields = ['animal', 'diasServ', 'ultimaServ']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('cio-list')
     
-class GanhoPesoUpdate(UpdateView):
+class GanhoPesoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = GanhoPeso
     fields = ['animal','dia', 'pesoDia', 'quantidadeRacao']
     template_name = 'cadastros/form.html'
@@ -84,59 +98,71 @@ class GanhoPesoUpdate(UpdateView):
 
 ################### DELETE ####################
 
-class FazendaDelete(DeleteView):
+class FazendaDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Fazenda
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('fazenda-list')
     
-class AnimalDelete(DeleteView):
+class AnimalDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Animal
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('animal-list')
     
-class QualidadeLeiteDelete(DeleteView):
+class QualidadeLeiteDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = QualidadeLeite
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('qualidadeleite-list')
     
-class HistoricoAnimalDelete(DeleteView):
+class HistoricoAnimalDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = HistoricoAnimal
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('historicoanimal-list')
     
     
-class CioDelete(DeleteView):
+class CioDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Cio
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('cio-list')
     
-class GanhoPesoDelete(DeleteView):
+class GanhoPesoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = GanhoPeso
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('ganhopeso-list')
     
 ################### LIST ####################
 
-class FazendaList(ListView):
+class FazendaList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Fazenda
     template_name = 'cadastros/listas/fazenda.html'
     
-class AnimalList(ListView):
+class AnimalList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Animal
     template_name = 'cadastros/listas/animal.html'
       
-class HistoricoanimalList(ListView):
+class HistoricoanimalList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = HistoricoAnimal
     template_name = 'cadastros/listas/historicoanimal.html'
     
-class QualidadeLeiteList(ListView):
+class QualidadeLeiteList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = QualidadeLeite
     template_name = 'cadastros/listas/qualidadeleite.html'
     
-class CiosList(ListView):
+class CiosList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Cio
     template_name = 'cadastros/listas/cio.html'
     
-class GanhoPesosList(ListView):
+class GanhoPesosList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = GanhoPeso
     template_name = 'cadastros/listas/ganhopeso.html'
