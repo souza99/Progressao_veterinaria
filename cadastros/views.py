@@ -160,10 +160,19 @@ class FazendaList(LoginRequiredMixin, ListView):
     model = Fazenda
     template_name = 'cadastros/listas/fazenda.html'
     
+    def get_queryset(self):
+        self.object_list = Fazenda.objects.filter(usuario=self.request.user)
+        return self.object_list
+    
+    
 class AnimalList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Animal
     template_name = 'cadastros/listas/animal.html'
+    
+    def get_queryset(self):
+        self.object_list = Animal.objects.filter(usuario=self.request.user)
+        return self.object_list
       
 class HistoricoanimalList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
