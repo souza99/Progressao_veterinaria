@@ -31,6 +31,15 @@ class AnimalCreate(LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('animal-list')
     
+    def form_valid(self, form):
+        
+        #Antes do super não foi criado o objeto e nem salvou no banco
+        form.instance.usuario = self.request.user
+        
+        url = super().form_valid(form)
+        
+        return url
+    
 class QualidadeLeiteCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = QualidadeLeite
