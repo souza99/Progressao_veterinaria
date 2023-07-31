@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Fazenda(models.Model):
     nome = models.CharField(max_length=100)
     localizacao = models.CharField(max_length=100, verbose_name='Localização')
     cpfcnpj = models.CharField(max_length=100, verbose_name='CPF/CNPJ')
     numero = models.IntegerField(verbose_name='Número')
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nome
@@ -22,6 +24,7 @@ class Animal(models.Model):
     dataNascimento = models.DateField()
     dataBaixa = models.DateField()
     fazenda = models.ForeignKey(Fazenda, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nome
