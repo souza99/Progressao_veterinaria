@@ -7,6 +7,8 @@ from .models import Fazenda, Animal, QualidadeLeite, HistoricoAnimal, Cio, Ganho
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
+
 # Create your views here.
 class FazendaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -77,12 +79,22 @@ class FazendaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('fazenda-list')
     
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Fazenda, pk=self.kwargs['pk'], usuario=self.request.user)
+        
+        return self.object
+    
 class AnimalUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Animal
     fields = ['nome', 'lote', 'nomePai', 'numeroPai', 'nomeMae', 'numeroMae', 'motivoBaixa', 'partosNaoLancados', 'dataNascimento', 'dataBaixa', 'fazenda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('animal-list')
+    
+    def get_object(self, queryset=None):
+        self.object = self.object = get_object_or_404(Animal, pk=self.kwargs['pk'], usuario=self.request.user)
+        
+        return self.object
     
 class QualidadeLeiteUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -121,6 +133,11 @@ class FazendaDelete(LoginRequiredMixin, DeleteView):
     model = Fazenda
     template_name = 'cadastros/form-delete.html'
     success_url = reverse_lazy('fazenda-list')
+    
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Fazenda, pk=self.kwargs['pk'], usuario=self.request.user)
+        
+        return self.object
     
 class AnimalDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
