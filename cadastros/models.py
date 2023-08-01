@@ -10,6 +10,11 @@ class Fazenda(models.Model):
 
     def __str__(self):
         return self.nome
+    
+
+class UsuarioFazenda():
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
+    fazenda = models.ForeignKey(Fazenda, on_delete=models.PROTECT)
 
 
 class Animal(models.Model):
