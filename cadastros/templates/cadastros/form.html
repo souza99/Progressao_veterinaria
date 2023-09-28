@@ -23,4 +23,14 @@
 
 </form>
 
+<script>
+    $("id_cep").blur(function (e){
+        var url = "http://viacep.com.br/ws/" + $('#id_cep').val() + "/json/";
+        $.getJSON(url, "", function(data,textStatus, jqXHR) {
+            $("#id_logradouro").val(data.logradouro);
+            $("#id_cidade").val(data.localidade);
+        });  
+    })
+<script/>
+
 {% endblock %}

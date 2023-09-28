@@ -133,12 +133,45 @@
         {% endblock %}
 
 
-        <!-- Bloco de conteúdo -->
-        <div class="container py-5">
-            {% block conteudo %}
-            <h3>Página inicial</h3>
-            {% endblock %}
-        </div>
+        {% block conteudo %}
+<div class="row justify-content-center align-items-center" style="height: 70vh;">
+    {% if not request.user.is_authenticated %}
+    <div class="col-md-8 text-center">
+        <img src="{% static 'img/logo.png' %}" alt="Logo GERE VETE" class="img-fluid mb-4" style="max-width: 200px;">
+        <h1>Bem-vindo ao GERE VETE</h1>
+        <p class="lead">Seu sistema confiável de gerenciamento de gado. Projetado para oferecer as melhores ferramentas de acompanhamento e otimização da gestão do seu rebanho.</p>
+        <a href="{% url 'login' %}" class="btn btn-lg btn-primary">Comece agora</a>
+    </div>
+    {% endif %}
+
+    {% if request.user.is_authenticated %}
+    <div class="manual-section">
+        <h2>Manual do Usuário</h2>
+        <p>Seja bem-vindo(a), {{ request.user.username }}! Abaixo, você encontrará um guia simples sobre como usar as principais funções do nosso sistema.</p>
+
+        <h3>Cadastrar Usuário</h3>
+        <p>Para cadastrar um novo usuário, acesse o menu 'Cadastros' e selecione 'Usuários'. Preencha todos os campos obrigatórios e clique em 'Salvar'.</p>
+
+        <h3>Cadastrar Animal</h3>
+        <p>Na seção 'Cadastros', selecione 'Animais'. Forneça todas as informações necessárias sobre o animal, como nome, raça, lote e data de nascimento. Clique em 'Salvar' para concluir.</p>
+
+        <h3>Cadastrar Fazenda</h3>
+        <p>Vá para 'Cadastros' > 'Fazendas'. Insira o nome da fazenda, localização e outras informações relevantes. Clique em 'Salvar' para adicionar a fazenda ao sistema.</p>
+
+        <h3>Histórico do Animal</h3>
+        <p>Para visualizar ou adicionar históricos a um animal, selecione o animal desejado e acesse a aba 'Histórico'. Aqui, você pode adicionar eventos ou observações importantes sobre o animal.</p>
+
+        <h3>Pesagem</h3>
+        <p>Na seção 'Pesagem', você pode registrar o peso de um animal em uma data específica. Esses registros ajudarão a monitorar o crescimento e a saúde dos animais ao longo do tempo.</p>
+
+        <p>Para qualquer dúvida adicional ou suporte, entre em contato com nossa equipe!</p>
+    </div>
+{% endif %}
+
+</div>
+{% endblock %}
+
+
 
     </main>
 

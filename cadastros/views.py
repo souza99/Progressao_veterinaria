@@ -78,6 +78,7 @@ class FazendaUpdate(LoginRequiredMixin, UpdateView):
     fields = ['nome', 'localizacao', 'cpfcnpj', 'numero']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('fazenda-list')
+    success_message = "Fazenda cadastrada com sucesso!"
     
     def get_object(self, queryset=None):
         self.object = get_object_or_404(Fazenda, pk=self.kwargs['pk'], usuario=self.request.user)
@@ -90,6 +91,7 @@ class AnimalUpdate(LoginRequiredMixin, UpdateView):
     fields = ['nome', 'lote', 'nomePai', 'numeroPai', 'nomeMae', 'numeroMae', 'motivoBaixa', 'partosNaoLancados', 'dataNascimento', 'dataBaixa', 'fazenda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('animal-list')
+    success_message = "Animal cadastrado com sucesso!"
     
     def get_object(self, queryset=None):
         self.object = self.object = get_object_or_404(Animal, pk=self.kwargs['pk'], usuario=self.request.user)
