@@ -104,6 +104,7 @@ class QualidadeLeiteUpdate(LoginRequiredMixin, UpdateView):
     fields = ['nt', 'dias', 'estado', 'kgLeite', 'porcentagemGordura', 'porcentagemProteinas', 'lactose', 'gp', 'ccs', 'ureia', 'cetose', 'pps', 'animal', 'diaRetirado']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('qualidadeleite-list')
+    success_message="Qualidade cadastrada com sucesso"
     
 class HistoricoAnimalUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -111,6 +112,7 @@ class HistoricoAnimalUpdate(LoginRequiredMixin, UpdateView):
     fields = ['animal' ,'observacoes' ,'medicamento']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('historicoanimal-list')
+    success_message = "Histórico salvo com sucesso"
 
 class CioUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -118,6 +120,7 @@ class CioUpdate(LoginRequiredMixin, UpdateView):
     fields = ['animal', 'diasServ', 'ultimaServ']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('cio-list')
+    success_message="Cia cadastrado com sucesso!"
     
 class GanhoPesoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -125,6 +128,7 @@ class GanhoPesoUpdate(LoginRequiredMixin, UpdateView):
     fields = ['animal','dia', 'pesoDia', 'quantidadeRacao']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('ganhopeso-list')
+    success_message="Pesagem cadastrada com sucesso!"
     
 
 

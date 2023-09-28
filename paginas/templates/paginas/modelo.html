@@ -29,6 +29,12 @@
         </div>
         {% endblock %}
 
+        {% if messages %}
+            {% for m in messages %}
+            <h6>{{ m }}</h6>
+            {% endfor %}
+        {% endif %}
+
         {% block conteudo %}
         <div class="container">
             <h3>Template do modelo</h3>

@@ -144,3 +144,10 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Configuração de mensagens
+
+# MESSAGE_TAGS = {
+#     messages.ERROR: "Ocorreu um erro";
+# }
