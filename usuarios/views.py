@@ -6,11 +6,11 @@ from django.shortcuts import get_object_or_404
 
 from .models import Perfil
 
-# Create your views here.
 class UsuarioCreate(CreateView):
     template_name = "cadastros/form.html"
     form_class = UsuarioForm
     success_url = reverse_lazy('login')
+    
 
     def form_valid(self, form):
 
