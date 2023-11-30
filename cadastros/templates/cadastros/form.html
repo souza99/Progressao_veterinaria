@@ -5,6 +5,15 @@
 {% load crispy_forms_tags %}
 
 {% block conteudo %}
+
+<head>
+    <title>Máscara de Data com jQuery</title>
+    <!-- Inclua o jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Inclua o Plugin jQuery Mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</head>
+
 <h3>{{ titulo }}</h3>
 
 <p class="lead">
@@ -36,4 +45,33 @@
     })
 <script/>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+<script>
+
+    $(document).ready(function() {
+
+        $("#id_dataNascimento").mask("00/00/0000");
+        $("#id_dataBaixa").mask("00/00/0000");
+
+        var cpfCnpjMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009999' : '00.000.000/0000-00';
+        };
+
+        var cpfCnpjpOptions = {
+            onKeyPress: function(val, e, field, options) {
+                field.mask(cpfCnpjMaskBehavior.apply({}, arguments), options);
+            }
+        };
+
+        $('#id_cpfcnpj').mask(cpfCnpjMaskBehavior, cpfCnpjpOptions);
+
+
+    });
+
+</script>
 {% endblock %}

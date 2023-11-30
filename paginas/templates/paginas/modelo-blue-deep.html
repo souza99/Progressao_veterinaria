@@ -202,13 +202,12 @@
 
 
     <!-- Importação do JS -->
-    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
+    {% comment %} <script src="js/jquery-3.7.1.min.js"> </script> {% endcomment %}
 
-    <!-- Bloco destinado aos scripts para cada página -->
     {% block scripts %}
 
     {% endblock %}
