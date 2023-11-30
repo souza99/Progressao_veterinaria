@@ -14,14 +14,12 @@ class UsuarioCreate(CreateView):
 
     def form_valid(self, form):
 
-        grupo = get_object_or_404(Group, name="Docente")
-
         url = super().form_valid(form)
 
-        self.object.groups.add(grupo)
+        # self.object.groups.add(grupo)
         self.object.save()
 
-        Perfil.objects.create(usuario=self.object)
+        # Perfil.objects.create(usuario=self.object)
 
         return url
 
